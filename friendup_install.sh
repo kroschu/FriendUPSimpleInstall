@@ -192,7 +192,7 @@ infoMessage "Configure Apache..."
 echo "ServerName "$DOMAINNAME | sudo tee -a /etc/apache2/apache2.conf
 
 infoMessage "Stop Apache..."
-apachectl -k stop
+sudo apachectl -k stop
 
 if [ "$TLS" == "1" ]; then
   infoMessage "Begin HTTPS setup..."
