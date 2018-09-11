@@ -186,7 +186,7 @@ cd friendup/
 sudo ./install.sh
 
 infoMessage "Kill Friend services..."
-sudo friendup/killFriend.sh
+sudo killFriend.sh
 
 infoMessage "Configure Apache..."
 echo "ServerName "$DOMAINNAME | sudo tee -a /etc/apache2/apache2.conf
