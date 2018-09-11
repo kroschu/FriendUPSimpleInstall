@@ -14,7 +14,7 @@ So, if you don't like these things, I don't recommand using this script.
 This script was tested on Raspbian 2018/06/27 release.
 
 ## What this does
-**While this mostly tells about how it works, I recommand checking out step 10 and 13 if you want to install using this script.**
+**While this mostly tells about how it works, I recommand checking out step 10, 13, and 14 if you want to install using this script.**
 
 1. Gathers information from user, which includes MySQL/MariaDB root/database passwords, domain name, and whether user wants to use SSL/TLS or not.
 2. Updates package information(```sudo apt update```).
@@ -31,3 +31,4 @@ This script was tested on Raspbian 2018/06/27 release.
 11. Stops Friend services
 12. Configures apache(for stopping), and stops server.
 13. **This part is optional,** but it also helps you setting up SSL/TLS using Let's Encrypt service(If you chose to use SSL/TLS). You just have to answer few more questions, and you are ready to go. Not only this step runs Certbot to help you that, **it also links your certificate files to actual path where FriendUP looks certificate files for.**
+14. Installs Friend Core as systemd service and enables it(so that Friend Core will start when system boots).
