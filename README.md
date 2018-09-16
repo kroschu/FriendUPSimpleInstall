@@ -30,5 +30,11 @@ This script was tested on Raspbian 2018/06/27 release.
 10. Starts FriendUP installer. **If it says that it has detected previous installation and asks if you want to continue**, choose Yes. For other things, most of them should be set to value what you want, and only thing you have to tell installer is **MySQL/MariaDB root password**, which is required to setup FriendUP DB.
 11. Stops Friend services
 12. Configures apache(for stopping), and stops server.
-13. **This part is optional,** but it also helps you setting up SSL/TLS using Let's Encrypt service(If you chose to use SSL/TLS). You just have to answer few more questions, and you are ready to go. Not only this step runs Certbot to help you that, **it also links your certificate files to actual path where FriendUP looks certificate files for.**
+13. **This part is optional,** but it also helps you setting up SSL/TLS using Let's Encrypt(LE) service(If you chose to use SSL/TLS). You just have to answer few more questions, and you are ready to go. Not only this step runs Certbot to help you that, **it also links your certificate files to actual path where FriendUP looks certificate files for.**
+- **IMPORTANT**: Doing this automated installation disables apache2 service. If you don't want that, please configure LE manually.
+```
+- From commit description:
+Disables apache2.service when user wants to setup ACMEv2.
+Now, it's possible to tell Certbot to stop Apache and restart after it's done(Certbot runs automatically before certificate expires), but I simply don't have enough time to test that.
+```
 14. Installs Friend Core as systemd service and enables it(so that Friend Core will start when system boots).
