@@ -188,12 +188,6 @@ sudo ./install.sh
 infoMessage "Kill Friend services..."
 sudo killFriend.sh
 
-infoMessage "Configure Apache..."
-echo "ServerName "$DOMAINNAME | sudo tee -a /etc/apache2/apache2.conf
-
-infoMessage "Stop Apache..."
-sudo apachectl -k stop
-
 if [ "$TLS" == "1" ]; then
   infoMessage "Begin HTTPS setup..."
   infoMessage "-> Ask user whether user wants to run ACMEv2 setup or not"
@@ -212,6 +206,12 @@ if [ "$TLS" == "1" ]; then
   done
 
   if [ "$ACME" == "1" ]; then
+    infoMessage "Configure Apache for stopping..."
+    echo "ServerName "$DOMAINNAME | sudo tee -a /etc/apache2/apache2.conf
+    infoMessage "Stop Apache and disable auto-startup..."
+    sudo apachectl -k stop
+    sudo systemctl disable apache2.service
+    sudo systemctl stop apache2.service
     infoMessage "-> Install Certbot for HTTPS setup with ACMEv2..."
     try sudo apt install -y certbot
     infoMessage "-> Run Certbot..."
