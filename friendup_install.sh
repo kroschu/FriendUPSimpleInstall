@@ -79,11 +79,11 @@ echo -e "\e[93mThank you. Installation will now begin...\e[0m"
 
 
 infoMessage "Updating packages..."
-try sudo apt update
+try sudo apt-get update
 
 
 infoMessage "Upgrading packages..."
-try sudo apt upgrade -y
+try sudo apt-get upgrade -y
 
 
 infoMessage "Installing required packages"
@@ -119,7 +119,7 @@ try sudo systemctl restart mysqld
 
 infoMessage "Downloading FriendUP..."
 if [ ! -d friendup ]; then
-  try git clone https://github.com/FriendSoftwareLabs/friendup
+  try git clone https://github.com/FriendUPCloud/friendup.git
 else
   infoMessage " -> FriendUP directory already exists. Skipping..."
 fi
