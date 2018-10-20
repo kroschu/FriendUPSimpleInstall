@@ -82,8 +82,8 @@ infoMessage "Updating packages..."
 try sudo apt-get update
 
 
-infoMessage "Upgrading packages..."
-try sudo apt-get upgrade -y
+# infoMessage "Upgrading packages..."
+# try sudo apt-get upgrade -y
 
 
 infoMessage "Installing required packages"
